@@ -1,0 +1,53 @@
+To setup and run the application you will need:
+java 17 or greater
+maven 4.0 or greater
+an IDE which can run maven projects (I used IntelliJ IDEA)
+
+To run the application, import the project into your IDE, then run the file com/assessment/AssessmentApplication.java
+To run the API methods, first make sure that the above mentioned file is running. Then you can use either a terminal to run curl requests, or a service like Postman to make your requests
+
+Available endpoints are
+
+Books:
+GET endpoints:
+    /books
+        -returns all books in the database
+    
+    /books/{book_id}
+        -returns information about a specific book
+
+Post endpoints:
+    /books
+        -requires a Book object with title and author fields
+        -creates a new Book with the supplied title and author
+
+Borrowers:
+GET endpoints:
+    /borrowers
+       -returns all borrowers in the database
+
+    /borrowers/{borrower_id}
+        -returns information about a specific borrower
+
+Post endpoints:
+    /borrowers
+        -requires a Borrower object with name
+        -creates a new Borrower with the supplied name
+
+Borrowings:
+Get endpoints:
+    /borrowings
+        -returns all borrowings in the database
+
+    /borrowings/borrower_id/{borrower_id}
+        -returns all borrowings by a particular borrower
+
+    /borrowings/borrow/book_id/{book_id}/borrower_id/{borrower_id}
+        -creates a borrowing record for the specified borrower and book
+
+    /borrowings/return/book_id/{book_id}/borrower_id/{borrower_id}
+        -updates a borrowing record to indicate that the book has been returned
+
+Assumptions made:
+    -Books cannot be borrowed by more than one borrower at a time
+    -a list of borrowings which include book ids constitutes a list of books
